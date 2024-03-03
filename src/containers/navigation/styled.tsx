@@ -43,6 +43,7 @@ export const Nav = styled("nav")(
                     height: "stretch",
                     top: "calc(44px + calc(2 * var(--sectionMargin)))",
                     padding: "calc(2 * var(--cardPadding)) calc(2 * var(--cardPadding)) calc(calc(2 * var(--cardPadding)) + var(--sectionMargin))",
+                    background: "#FFFFFF",
                     zIndex: 10,
                 }
             },

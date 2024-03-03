@@ -1,6 +1,7 @@
 import './App.css';
 import { Container } from '@mui/material';
 import { Navbar } from './containers/navigation';
+import { Header } from './containers/header';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       }}
     >
       <Navbar />
+      <Header />
     </Container>
   );
 }
