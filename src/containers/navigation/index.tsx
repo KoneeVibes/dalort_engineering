@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Stack, Typography } from "@mui/material";
 import { Logo } from "../../assets";
-import { BaseButton } from "../../components/button";
+import { BaseButton } from "../../components/button/styled";
 import { navLinks } from "../../data";
 import { Nav } from "./styled";
 import { HashLink } from "react-router-hash-link";
@@ -74,12 +74,12 @@ export const Navbar: React.FC<{}> = () => {
                     >
                         <Typography
                             variant="button"
-                            fontFamily={"PP Telegraph"}
-                            fontWeight={400}
-                            fontSize={14}
-                            lineHeight={"normal"}
-                            color={"#111111"}
-                            textTransform={"capitalize"}
+                            fontFamily={"inherit"}
+                            fontWeight={"inherit"}
+                            fontSize={"inherit"}
+                            lineHeight={"inherit"}
+                            color={"inherit"}
+                            textTransform={"inherit"}
                         >
                             Contact us
                         </Typography>

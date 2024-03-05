@@ -33,6 +33,10 @@ export const Nav = styled("nav")(
             },
             [theme.breakpoints.down("tablet")]: {
                 gap: "var(--flexGap)",
+                position: "sticky",
+                top: 0,
+                background: '#FFFFFF',
+                zIndex: 900000,
                 "& .MuiStack-root": {
                     display: openMenu ? "flex" : "none",
                     flexDirection: "column",
