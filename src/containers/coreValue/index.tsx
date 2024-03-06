@@ -7,7 +7,7 @@ import corevalue from "../../assets/corevalue.svg";
 export const CoreValue: React.FC<{}> = () => {
     return (
         <CoreValueBox
-            padding={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding)", desktop: "calc(5 * var(--sectionMargin)) var(--pagePadding) calc(7 * var(--sectionMargin))" }}
+            padding={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding) calc(5 * var(--sectionMargin))", desktop: "calc(5 * var(--sectionMargin)) var(--pagePadding) calc(7 * var(--sectionMargin))" }}
         >
             <Box
                 display={"flex"}

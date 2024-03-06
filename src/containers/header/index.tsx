@@ -22,7 +22,7 @@ export const Header: React.FC<{}> = () => {
                     variant="h1"
                     fontFamily={"PP Telegraph"}
                     fontWeight={800}
-                    fontSize={{ mobile: 25, tablet: 35, laptop: 40 }}
+                    fontSize={{ mobile: 30, tablet: 35, laptop: 40 }}
                     lineHeight={"normal"}
                     color={"#FFFFFF"}
                     whiteSpace={"wrap"}

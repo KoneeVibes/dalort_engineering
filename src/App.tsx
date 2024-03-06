@@ -6,6 +6,8 @@ import { Services } from './containers/services';
 import { About } from './containers/about';
 import { Deliverables } from './containers/deliverables';
 import { CoreValue } from './containers/coreValue';
+import { Benefits } from './containers/benefits';
+import { Testimonial } from './containers/testimonial';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <About />
       <Deliverables />
       <CoreValue />
+      <Benefits />
+      <Testimonial />
     </Container>
   );
 }

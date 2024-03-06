@@ -11,6 +11,14 @@ export const CoreValueBox = styled(Box)(
             background: "transparent",
             border: "none",
             boxShadow: "none",
+        },
+        "& .MuiCardContent-root": {
+            "& ul": {
+                overflow: "hidden",
+                [theme.breakpoints.down("desktop")]: {
+                    paddingInlineStart: 20
+                }
+            }
         }
     })
 )

@@ -1,3 +1,4 @@
+import { Construction, DocumentRegistration, ElectricalServices, Integrity, SupplyServices, TechnicalManpower } from "./assets";
 import engineeringServices from "./assets/engineeringServices.svg";
 import projectManagement from "./assets/projectManagement.svg";
 import technicalManpower from "./assets/technicalManpower.svg";
@@ -55,4 +56,31 @@ export const serviceDeliverables = [
             "Training and Human Capacity Development",
         ]
     },
+];
+
+export const benefits = [
+    {
+        title: "Construction Management",
+        icon: <Construction />
+    },
+    {
+        title: "Integrity",
+        icon: <Integrity />
+    },
+    {
+        title: "Electrical Services",
+        icon: <ElectricalServices />
+    },
+    {
+        title: "Document registration",
+        icon: <DocumentRegistration />
+    },
+    {
+        title: "Supply services",
+        icon: <SupplyServices />
+    },
+    {
+        title: "Technical Manpower",
+        icon: <TechnicalManpower />
+    }
 ]
