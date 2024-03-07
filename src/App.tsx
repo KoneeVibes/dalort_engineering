@@ -8,6 +8,8 @@ import { Deliverables } from './containers/deliverables';
 import { CoreValue } from './containers/coreValue';
 import { Benefits } from './containers/benefits';
 import { Testimonial } from './containers/testimonial';
+import { FAQ } from './containers/faq';
+import { Footer } from './containers/footer';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
       <CoreValue />
       <Benefits />
       <Testimonial />
+      <FAQ />
+      <Footer />
     </Container>
   );
 }

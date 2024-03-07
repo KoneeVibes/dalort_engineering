@@ -5,3 +5,4 @@ export { ReactComponent as ElectricalServices } from "./electricalServices.svg";
 export { ReactComponent as DocumentRegistration } from "./documentRegistration.svg";
 export { ReactComponent as SupplyServices } from "./supply.svg";
 export { ReactComponent as TechnicalManpower } from "./technical.svg";
+export { ReactComponent as CarouselBg } from "./carouselBg.svg";

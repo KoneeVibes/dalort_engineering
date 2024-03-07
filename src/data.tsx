@@ -2,6 +2,7 @@ import { Construction, DocumentRegistration, ElectricalServices, Integrity, Supp
 import engineeringServices from "./assets/engineeringServices.svg";
 import projectManagement from "./assets/projectManagement.svg";
 import technicalManpower from "./assets/technicalManpower.svg";
+import castlepine from "./assets/carouselBg.svg";
 
 export const navLinks = [
     {
@@ -9,7 +10,7 @@ export const navLinks = [
         url: "#"
     },
     {
-        item: "Service",
+        item: "Services",
         url: "#"
     },
     {
@@ -83,4 +84,34 @@ export const benefits = [
         title: "Technical Manpower",
         icon: <TechnicalManpower />
     }
+];
+
+export const testimonials = [
+    {
+        bg: castlepine,
+        message: ' “Working with Darlots has been an incredibly painless and enjoyable experience.” '
+    },
+    {
+        bg: castlepine,
+        message: ' “Working with Darlots has been an incredibly painless and enjoyable experience.” '
+    }
+];
+
+export const qanda = [
+    {
+        q: "How is Darlots changing engineering landscape?",
+        a: "Trob takes a minimum fee per transaction compared to traditional brokers who can take commissions up to 45%. We put an end to this nonsense with full transparency by revealing our fees to you."
+    },
+    {
+        q: "How is Darlots changing engineering landscape?",
+        a: "Trob takes a minimum fee per transaction compared to traditional brokers who can take commissions up to 45%. We put an end to this nonsense with full transparency by revealing our fees to you."
+    },
+    {
+        q: "How is Darlots changing engineering landscape?",
+        a: "Trob takes a minimum fee per transaction compared to traditional brokers who can take commissions up to 45%. We put an end to this nonsense with full transparency by revealing our fees to you."
+    },
+    {
+        q: "How is Darlots changing engineering landscape?",
+        a: "Trob takes a minimum fee per transaction compared to traditional brokers who can take commissions up to 45%. We put an end to this nonsense with full transparency by revealing our fees to you."
+    },
 ]
