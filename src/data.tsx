@@ -3,6 +3,9 @@ import engineeringServices from "./assets/engineeringServices.svg";
 import projectManagement from "./assets/projectManagement.svg";
 import technicalManpower from "./assets/technicalManpower.svg";
 import castlepine from "./assets/carouselBg.svg";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import XIcon from '@mui/icons-material/X';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 export const navLinks = [
     {
@@ -114,4 +117,8 @@ export const qanda = [
         q: "How is Darlots changing engineering landscape?",
         a: "Trob takes a minimum fee per transaction compared to traditional brokers who can take commissions up to 45%. We put an end to this nonsense with full transparency by revealing our fees to you."
     },
+];
+
+export const smIcons = [
+    <LinkedInIcon />, <XIcon />, <InstagramIcon />
 ]

@@ -10,7 +10,7 @@ export const Footerbox = styled(Box)(
             flexDirection: "column",
         },
         [theme.breakpoints.down(209)]: {
-            "& .logo, & button": {
+            "& .logo, & .bookASession": {
                 width: "100%"
             }
         }

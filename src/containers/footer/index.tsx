@@ -1,9 +1,9 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { Footerbox } from "./styled";
 import { Logo } from "../../assets";
 import { BaseButton } from "../../components/button/styled";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { navLinks } from "../../data";
+import { navLinks, smIcons } from "../../data";
 
 export const Footer: React.FC<{}> = () => {
     return (
@@ -15,7 +15,7 @@ export const Footer: React.FC<{}> = () => {
                 gap={"var(--sectionMargin)"}
                 width={{ tablet: "50%", laptop: "30%" }}
             >
-                <Logo  className="logo"/>
+                <Logo className="logo" />
                 <Box
                     overflow={"hidden"}
                 >
@@ -32,6 +32,7 @@ export const Footer: React.FC<{}> = () => {
                         Let's talk about how Darlots can help you with your next engineering project
                     </Typography>
                     <BaseButton
+                        className="bookASession"
                         isheaderbutton={"false"}
                         location="footer"
                         endIcon={<ArrowOutwardIcon />}
@@ -51,26 +52,52 @@ export const Footer: React.FC<{}> = () => {
                     </BaseButton>
                 </Box>
             </Stack>
-            <Stack>
-                <Box>
-                    {}
-                </Box>
-                {navLinks.map((link, k) => {
-                    return (
-                        <Typography
-                            key={k}
-                            variant="subtitle1"
-                            fontFamily={"PP Telegraph"}
-                            fontWeight={400}
-                            fontSize={20}
-                            lineHeight={"normal"}
-                            color={"rgba(0, 0, 0, 1)"}
-                            marginBlock={".5rem"}
-                        >
-                            {link.item}
-                        </Typography>
-                    )
-                })}
+            <Stack
+                direction={{ mobile: "column-reverse", tablet: "column" }}
+                gap={{ mobile: ".5rem", tablet: "4rem" }}
+            >
+                <Stack
+                    direction={"row"}
+                    gap={{ mobile: ".5rem", tablet: "2rem" }}
+                    flexWrap={"wrap"}
+                    overflow={"hidden"}
+                    sx={{
+                        "& svg": {
+                            color: "#000000",
+                        }
+                    }}
+                >
+                    {smIcons.map((icon, key) => {
+                        return (
+                            <IconButton
+                                key={key}
+                                sx={{
+                                    padding: 0
+                                }}
+                            >
+                                {icon}
+                            </IconButton>
+                        )
+                    })}
+                </Stack>
+                <Stack>
+                    {navLinks.map((link, k) => {
+                        return (
+                            <Typography
+                                key={k}
+                                variant="subtitle1"
+                                fontFamily={"PP Telegraph"}
+                                fontWeight={400}
+                                fontSize={20}
+                                lineHeight={"normal"}
+                                color={"rgba(0, 0, 0, 1)"}
+                                marginBlock={".5rem"}
+                            >
+                                {link.item}
+                            </Typography>
+                        )
+                    })}
+                </Stack>
             </Stack>
         </Footerbox>
     )
