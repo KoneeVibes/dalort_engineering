@@ -9,9 +9,6 @@ export const QandAStack = styled(Stack)<{ isactive: string }>(
             "& .answer": {
                 display: (isactive === "true") ? "block" : "none"
             },
-            [theme.breakpoints.up("desktop")]: {
-                width: "80%"
-            }
         }
     }
 )

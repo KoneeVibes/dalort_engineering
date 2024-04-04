@@ -12,7 +12,12 @@ export const ServicesStack = styled(Stack)(
             padding: "calc(2 * var(--cardPadding)) var(--cardPadding)"
         },
         "& .MuiCardContent-root": {
-            padding: "0 var(--cardPadding) var(--cardPadding)"
+            padding: "0 var(--cardPadding) calc(3 * var(--cardPadding))",
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--flexGap)",
+            alignItem: "flex-start",
+            justifyContent: "space-between"
         },
         "& .MuiCardHeader-content": {
             width: "100%",

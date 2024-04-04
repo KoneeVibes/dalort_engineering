@@ -1,11 +1,10 @@
-import { Stack, Typography } from "@mui/material"
-import { FAQBox } from "./styled"
+import { Box, Stack, Typography } from "@mui/material"
 import { QandA } from "../../components/button/q/a"
 import { qanda } from "../../data"
 
 export const FAQ: React.FC<{}> = () => {
     return (
-        <FAQBox
+        <Box
             padding={{ mobile: "0 var(--pagePadding)", tablet: "var(--sectionMargin) var(--pagePadding)", desktop: "calc(2 * var(--sectionMargin)) var(--pagePadding)" }}
         >
             <Typography
@@ -33,6 +32,6 @@ export const FAQ: React.FC<{}> = () => {
                     )
                 })}
             </Stack>
-        </FAQBox>
+        </Box>
     )
 }

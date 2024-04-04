@@ -8,36 +8,19 @@ import { testimonials } from "../../data";
 export const Testimonial: React.FC<{}> = () => {
     return (
         <TestimonialBox
-            padding={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding)", desktop: "calc(2 * var(--sectionMargin)) calc(2 * var(--pagePadding))" }}
+            padding={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding)", desktop: "calc(2 * var(--sectionMargin)) var(--pagePadding)" }}
         >
             <Typography
                 variant="h2"
-                fontFamily={"Roboto"}
+                fontFamily={"PP Telegraph"}
                 fontWeight={400}
-                fontSize={35}
+                fontSize={{ mobile: 28, miniTablet: 35, tablet: 50 }}
                 lineHeight={"normal"}
                 color={"rgba(41, 38, 38, 1)"}
                 whiteSpace={"normal"}
+                marginBlockEnd={"2rem"}
             >
                 Our customers say it best
-            </Typography>
-            <Typography
-                variant="body1"
-                fontFamily={"Roboto"}
-                fontWeight={500}
-                fontSize={18}
-                lineHeight={"normal"}
-                color={"rgba(41, 38, 38, 1)"}
-                marginBlockStart={"1rem"}
-                marginBlockEnd={"calc(2 * var(--sectionMargin))"}
-                sx={{
-                    textDecoration: "underline",
-                    textDecorationColor: "rgba(41, 38, 38, 1)",
-                    textDecorationThickness: 3,
-                    cursor: "pointer"
-                }}
-            >
-                See all case studies
             </Typography>
             <Box>
                 <Carousel
@@ -45,7 +28,7 @@ export const Testimonial: React.FC<{}> = () => {
                     stopOnHover={false}
                     infiniteLoop={true}
                     interval={2000}
-                    emulateTouch={true}
+                    emulateTouch={false}
                     showThumbs={false}
                     showArrows={false}
                     showStatus={false}

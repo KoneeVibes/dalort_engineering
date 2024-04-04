@@ -1,10 +1,13 @@
-import { Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material"
-import { services } from "../../data"
-import { ServicesStack } from "./styled"
+import { Box, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
+import { services } from "../../data";
+import { ServicesStack } from "./styled";
+import { BaseButton } from "../../components/button/styled";
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 export const Services: React.FC<{}> = () => {
     return (
         <ServicesStack
+            id="services"
             margin={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding)", desktop: "calc(3 * var(--sectionMargin)) var(--pagePadding)" }}
             direction={{ mobile: "column", laptop: "row" }}
             gap={"var(--flexGap)"}
@@ -15,6 +18,9 @@ export const Services: React.FC<{}> = () => {
                     return (
                         <Card
                             key={k}
+                            sx={{
+                                flex: 1
+                            }}
                         >
                             <CardHeader
                                 title={
@@ -43,6 +49,27 @@ export const Services: React.FC<{}> = () => {
                                 >
                                     {service.body}
                                 </Typography>
+                                <Box
+                                    overflow={"hidden"}
+                                >
+                                    <BaseButton
+                                        isheaderbutton={"false"}
+                                        endIcon={<ArrowOutwardIcon />}
+                                        disableElevation={true}
+                                    >
+                                        <Typography
+                                            variant="button"
+                                            fontFamily={"inherit"}
+                                            fontWeight={"inherit"}
+                                            fontSize={"inherit"}
+                                            lineHeight={"inherit"}
+                                            color={"inherit"}
+                                            textTransform={"inherit"}
+                                        >
+                                            Learn more
+                                        </Typography>
+                                    </BaseButton>
+                                </Box>
                             </CardContent>
                             <CardMedia
                                 component={"img"}

@@ -4,10 +4,12 @@ import { Logo } from "../../assets";
 import { BaseButton } from "../../components/button/styled";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { navLinks, smIcons } from "../../data";
+import { FooterRefType } from "../../types/app.type";
 
-export const Footer: React.FC<{}> = () => {
+export const Footer: React.FC<FooterRefType> = ({ footerRef }) => {
     return (
         <Footerbox
+            ref={footerRef}
             margin={{ mobile: "calc(2 * var(--sectionMargin)) 0", desktop: "calc(3 * var(--sectionMargin)) 0" }}
             padding={"calc(2 * var(--sectionMargin)) var(--pagePadding)"}
         >

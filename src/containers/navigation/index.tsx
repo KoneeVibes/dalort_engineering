@@ -9,8 +9,9 @@ import { HashLink } from "react-router-hash-link";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Menu } from "../../components/button/menu";
 import { Context } from "../../context";
+import { FooterRefType } from "../../types/app.type";
 
-export const Navbar: React.FC<{}> = () => {
+export const Navbar: React.FC<FooterRefType> = ({ footerRef }) => {
     const navigate = useNavigate();
     const { openMenu, setOpenMenu } = useContext(Context);
     useEffect(() => {
@@ -23,6 +24,10 @@ export const Navbar: React.FC<{}> = () => {
     const handleLogoClick = () => {
         setOpenMenu(false);
         navigate("/");
+    };
+    const navigateToCalendly = () => {
+        setOpenMenu(false);
+        footerRef?.current?.scrollIntoView({ behavior: "smooth" });
     };
     return (
         <Nav>
@@ -70,7 +75,7 @@ export const Navbar: React.FC<{}> = () => {
                         isheaderbutton={"false"}
                         endIcon={<ArrowOutwardIcon />}
                         disableElevation={true}
-                        onClick={() => setOpenMenu(false)}
+                        onClick={navigateToCalendly}
                     >
                         <Typography
                             variant="button"

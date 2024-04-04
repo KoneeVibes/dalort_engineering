@@ -4,14 +4,17 @@ import { Navbar } from './containers/navigation';
 import { Header } from './containers/header';
 import { Services } from './containers/services';
 import { About } from './containers/about';
-import { Deliverables } from './containers/deliverables';
 import { CoreValue } from './containers/coreValue';
-import { Benefits } from './containers/benefits';
 import { Testimonial } from './containers/testimonial';
 import { FAQ } from './containers/faq';
 import { Footer } from './containers/footer';
+import { useRef } from 'react';
+import { Professionals } from './containers/professionals';
 
 function App() {
+  const aboutRef = useRef(null);
+  const footerRef = useRef(null);
+
   return (
     <Container
       maxWidth={false}
@@ -19,16 +22,15 @@ function App() {
         padding: "0 !important",
       }}
     >
-      <Navbar />
-      <Header />
+      <Navbar footerRef={footerRef} />
+      <Header aboutRef={aboutRef} />
       <Services />
-      <About />
-      <Deliverables />
+      <About aboutRef={aboutRef} />
       <CoreValue />
-      <Benefits />
+      <Professionals />
       <Testimonial />
       <FAQ />
-      <Footer />
+      <Footer footerRef={footerRef} />
     </Container>
   );
 }

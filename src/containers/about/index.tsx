@@ -1,10 +1,13 @@
 import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { AboutStack } from "./styled";
 import about from "../../assets/about.svg";
+import { AboutRefType } from "../../types/app.type";
 
-export const About: React.FC<{}> = () => {
+export const About: React.FC<AboutRefType> = ({ aboutRef }) => {
     return (
         <AboutStack
+            id="about"
+            ref={aboutRef}
             margin={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding)", desktop: "calc(3 * var(--sectionMargin)) var(--pagePadding)" }}
             justifyContent={"space-between"}
             direction={{ mobile: "column", tablet: "row" }}
@@ -20,8 +23,8 @@ export const About: React.FC<{}> = () => {
                         <Typography
                             variant="h2"
                             fontFamily={"PP Telegraph"}
-                            fontWeight={800}
-                            fontSize={30}
+                            fontWeight={400}
+                            fontSize={{ mobile: 28, miniTablet: 35, tablet: 50 }}
                             lineHeight={"normal"}
                             color={"rgba(10, 53, 57, 1)"}
                             whiteSpace={"normal"}
@@ -30,86 +33,31 @@ export const About: React.FC<{}> = () => {
                             About  Us
                         </Typography>
                     }
-                    subheader={
-                        <Typography
-                            variant="body1"
-                            fontFamily={"PP Telegraph"}
-                            fontWeight={400}
-                            fontSize={16}
-                            lineHeight={"30px"}
-                            color={"rgba(0, 0, 0, 1)"}
-                            whiteSpace={"normal"}
-                        >
-                            Hakit Services Limited is licenced to practice engineering COREN ECF. 00726 Our focus is to utilize local expertise to deliver industry standard and world class services. Primary clients are the Major and Indigenous Oil and Gas, The Energy and Maritime Companies. We look forward to you.
-                        </Typography>
-                    }
                 />
                 <CardContent>
-                    <ul>
-                        <li>
-                            <Typography
-                                variant="h3"
-                                component={"span"}
-                                fontFamily={"PP Telegraph"}
-                                fontWeight={800}
-                                fontSize={30}
-                                lineHeight={"normal"}
-                                color={"rgba(8, 59, 59, 1)"}
-                                whiteSpace={"normal"}
-                                paddingInlineStart={"1rem"}
-                                sx={{
-                                    verticalAlign: "super"
-                                }}
-                            >
-                                Mission
-                            </Typography>
-                            <br />
-                            <Typography
-                                variant="body1"
-                                fontFamily={"PP Telegraph"}
-                                fontWeight={400}
-                                fontSize={16}
-                                lineHeight={"30px"}
-                                color={"rgba(0, 0, 0, 1)"}
-                                whiteSpace={"normal"}
-                                marginBlockStart={"1rem"}
-                            >
-                                To provide fit for purpose Engineering and Project Management Services to our Clients. Technical proficiency, cost effectiveness and timely deliverable will be our brand.
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography
-                                variant="h3"
-                                component={"span"}
-                                fontFamily={"PP Telegraph"}
-                                fontWeight={800}
-                                fontSize={30}
-                                lineHeight={"normal"}
-                                color={"rgba(8, 59, 59, 1)"}
-                                whiteSpace={"normal"}
-                                marginBlockEnd={"1rem"}
-                                paddingInlineStart={"1rem"}
-                                sx={{
-                                    verticalAlign: "super"
-                                }}
-                            >
-                                Vision
-                            </Typography>
-                            <br />
-                            <Typography
-                                variant="body1"
-                                fontFamily={"PP Telegraph"}
-                                fontWeight={400}
-                                fontSize={16}
-                                lineHeight={"30px"}
-                                color={"rgba(0, 0, 0, 1)"}
-                                whiteSpace={"normal"}
-                                marginBlockStart={"1rem"}
-                            >
-                                To provide fit for purpose Engineering and Project Management Services to our Clients. Technical proficiency, cost effectiveness and timely deliverable will be our brand.
-                            </Typography>
-                        </li>
-                    </ul>
+                    <Typography
+                        variant="body1"
+                        fontFamily={"PP Telegraph"}
+                        fontWeight={400}
+                        fontSize={16}
+                        lineHeight={"30px"}
+                        color={"rgba(0, 0, 0, 1)"}
+                        whiteSpace={"normal"}
+                        marginBlockEnd={"2rem"}
+                    >
+                        D'alorts Engineering  is a leading provider of integrated Engineering, Procurement, Construction & Installation (EPCI) services, Instrumentation & Electrical Services, Automation & Control System, Manpower Support & Training across the asset and project life cycle within the onshore, offshore and subsea markets of the oil and gas & Power sector.
+                    </Typography>
+                    <Typography
+                        variant="body1"
+                        fontFamily={"PP Telegraph"}
+                        fontWeight={400}
+                        fontSize={16}
+                        lineHeight={"30px"}
+                        color={"rgba(0, 0, 0, 1)"}
+                        whiteSpace={"normal"}
+                    >
+                        Our people, assets, specialist technical partners and cordial relationship with the communities in which we operate enables us to deliver projects on schedule, safely and with unparalleled quality.
+                    </Typography>
                 </CardContent>
             </Card>
             <Box

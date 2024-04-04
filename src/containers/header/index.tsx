@@ -1,8 +1,9 @@
 import { Box, Stack, Typography } from "@mui/material";
 import headerBg from "../../assets/headerBg.svg";
 import { BaseButton } from "../../components/button/styled";
+import { AboutRefType } from "../../types/app.type";
 
-export const Header: React.FC<{}> = () => {
+export const Header: React.FC<AboutRefType> = ({ aboutRef }) => {
     return (
         <Box
             sx={{
@@ -57,6 +58,7 @@ export const Header: React.FC<{}> = () => {
                         sx={{
                             width: { mobile: "100%", miniTablet: "auto" },
                         }}
+                        onClick={() => aboutRef?.current?.scrollIntoView({ behavior: "smooth" })}
                     >
                         <Typography
                             variant="button"
@@ -67,7 +69,7 @@ export const Header: React.FC<{}> = () => {
                             color={"inherit"}
                             textTransform={"inherit"}
                         >
-                            Book a session
+                            Learn more
                         </Typography>
                     </BaseButton>
                     <BaseButton
@@ -86,7 +88,7 @@ export const Header: React.FC<{}> = () => {
                             color={"inherit"}
                             textTransform={"inherit"}
                         >
-                            Get started
+                            Schedule call
                         </Typography>
                     </BaseButton>
                 </Stack>
