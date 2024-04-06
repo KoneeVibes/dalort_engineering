@@ -1,12 +1,12 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { Footerbox } from "./styled";
 import { Logo } from "../../assets";
-import { BaseButton } from "../../components/button/styled";
+import { BaseButton } from "../button/styled";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { navLinks, smIcons } from "../../data";
+import { contactDetails, smIcons } from "../../data";
 import { FooterRefType } from "../../types/app.type";
 
-export const Footer: React.FC<FooterRefType> = ({ footerRef }) => {
+export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef }) => {
     return (
         <Footerbox
             ref={footerRef}
@@ -39,6 +39,7 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef }) => {
                         location="footer"
                         endIcon={<ArrowOutwardIcon />}
                         disableElevation={true}
+                        onClick={() => calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })}
                     >
                         <Typography
                             variant="button"
@@ -55,8 +56,8 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef }) => {
                 </Box>
             </Stack>
             <Stack
-                direction={{ mobile: "column-reverse", tablet: "column" }}
-                gap={{ mobile: ".5rem", tablet: "4rem" }}
+                direction={{ mobile: "column-reverse", laptop: "column" }}
+                gap={{ mobile: ".5rem", laptop: "4rem" }}
             >
                 <Stack
                     direction={"row"}
@@ -83,10 +84,10 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef }) => {
                     })}
                 </Stack>
                 <Stack>
-                    {navLinks.map((link, k) => {
-                        return (
+                    {Object.entries(contactDetails).map((detail, key) => {
+                        return(
                             <Typography
-                                key={k}
+                                key={key}
                                 variant="subtitle1"
                                 fontFamily={"PP Telegraph"}
                                 fontWeight={400}
@@ -94,8 +95,9 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef }) => {
                                 lineHeight={"normal"}
                                 color={"rgba(0, 0, 0, 1)"}
                                 marginBlock={".5rem"}
+                                whiteSpace={"normal"}
                             >
-                                {link.item}
+                                {detail}
                             </Typography>
                         )
                     })}

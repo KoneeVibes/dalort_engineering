@@ -6,8 +6,10 @@ export const Footerbox = styled(Box)(
         display: "flex",
         justifyContent: "space-between",
         gap: "var(--flexGap)",
-        [theme.breakpoints.down("tablet")]: {
+        alignItems: "flex-end",
+        [theme.breakpoints.down("laptop")]: {
             flexDirection: "column",
+            alignItems: "stretch",
         },
         [theme.breakpoints.down(209)]: {
             "& .logo, & .bookASession": {

@@ -1,9 +1,9 @@
 import { Box, Stack, Typography } from "@mui/material";
 import headerBg from "../../assets/headerBg.svg";
-import { BaseButton } from "../../components/button/styled";
+import { BaseButton } from "../button/styled";
 import { AboutRefType } from "../../types/app.type";
 
-export const Header: React.FC<AboutRefType> = ({ aboutRef }) => {
+export const Header: React.FC<AboutRefType> = ({ aboutRef, calendlyRef }) => {
     return (
         <Box
             sx={{
@@ -78,6 +78,7 @@ export const Header: React.FC<AboutRefType> = ({ aboutRef }) => {
                         sx={{
                             width: { mobile: "100%", miniTablet: "auto" },
                         }}
+                        onClick={() => calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })}
                     >
                         <Typography
                             variant="button"

@@ -8,7 +8,7 @@ import { testimonials } from "../../data";
 export const Testimonial: React.FC<{}> = () => {
     return (
         <TestimonialBox
-            padding={{ mobile: "calc(2 * var(--sectionMargin)) var(--pagePadding)", desktop: "calc(2 * var(--sectionMargin)) var(--pagePadding)" }}
+            padding={{ mobile: "var(--sectionMargin) var(--pagePadding)", miniTablet: "calc(1.5 * var(--sectionMargin)) var(--pagePadding)", laptop: "calc(2 * var(--sectionMargin)) var(--pagePadding)" }}
         >
             <Typography
                 variant="h2"
@@ -44,6 +44,7 @@ export const Testimonial: React.FC<{}> = () => {
                                     sx={{
                                         background: "rgba(8, 59, 59, 1)",
                                         borderRadius: "10px",
+                                        boxShadow: "none",
                                         flex: 0.6
                                     }}
                                 >
@@ -104,6 +105,7 @@ export const Testimonial: React.FC<{}> = () => {
                                     sx={{
                                         flex: 0.4,
                                         borderRadius: "10px",
+                                        boxShadow: "none",
                                     }}
                                 >
                                     <CardMedia

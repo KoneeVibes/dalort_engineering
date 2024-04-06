@@ -1,19 +1,21 @@
 import './App.css';
 import { Container } from '@mui/material';
-import { Navbar } from './containers/navigation';
-import { Header } from './containers/header';
+import { Navbar } from './components/navigation';
+import { Header } from './components/header';
 import { Services } from './containers/services';
 import { About } from './containers/about';
 import { CoreValue } from './containers/coreValue';
 import { Testimonial } from './containers/testimonial';
-import { FAQ } from './containers/faq';
-import { Footer } from './containers/footer';
+import { FAQ } from './components/faq';
+import { Footer } from './components/footer';
 import { useRef } from 'react';
 import { Professionals } from './containers/professionals';
+import { Calendly } from './containers/calendly';
 
 function App() {
   const aboutRef = useRef(null);
   const footerRef = useRef(null);
+  const calendlyRef = useRef(null)
 
   return (
     <Container
@@ -23,14 +25,15 @@ function App() {
       }}
     >
       <Navbar footerRef={footerRef} />
-      <Header aboutRef={aboutRef} />
+      <Header aboutRef={aboutRef} calendlyRef={calendlyRef} />
       <Services />
       <About aboutRef={aboutRef} />
       <CoreValue />
       <Professionals />
       <Testimonial />
+      <Calendly calendlyRef={calendlyRef} />
       <FAQ />
-      <Footer footerRef={footerRef} />
+      <Footer footerRef={footerRef} calendlyRef={calendlyRef} />
     </Container>
   );
 }

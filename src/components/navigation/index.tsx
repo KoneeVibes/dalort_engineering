@@ -2,12 +2,12 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Stack, Typography } from "@mui/material";
 import { Logo } from "../../assets";
-import { BaseButton } from "../../components/button/styled";
+import { BaseButton } from "../button/styled";
 import { navLinks } from "../../data";
 import { Nav } from "./styled";
 import { HashLink } from "react-router-hash-link";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { Menu } from "../../components/button/menu";
+import { Menu } from "../button/menu";
 import { Context } from "../../context";
 import { FooterRefType } from "../../types/app.type";
 

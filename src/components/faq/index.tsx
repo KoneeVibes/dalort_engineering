@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material"
-import { QandA } from "../../components/button/q/a"
+import { QandA } from "../button/q/a"
 import { qanda } from "../../data"
 
 export const FAQ: React.FC<{}> = () => {

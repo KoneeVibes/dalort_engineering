@@ -90,3 +90,9 @@ export const professionals = [
         height: 622
     }
 ];
+
+export const contactDetails = {
+    "Phone: ": "08072447626",
+    "Email: ": "info@dalortsengineering.com",
+    "Office Address: ": " Palace Road, Oniru, Lagos."
+}
