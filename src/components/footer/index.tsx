@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { Footerbox } from "./styled";
 import { Logo } from "../../assets";
@@ -6,7 +7,8 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { contactDetails, smIcons } from "../../data";
 import { FooterRefType } from "../../types/app.type";
 
-export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef }) => {
+export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef, page }) => {
+    const navigate = useNavigate();
     return (
         <Footerbox
             ref={footerRef}
@@ -39,7 +41,19 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef }) => {
                         location="footer"
                         endIcon={<ArrowOutwardIcon />}
                         disableElevation={true}
-                        onClick={() => calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })}
+                        onClick={() => {
+                            if (page === "home") {
+                                calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })
+                            } else {
+                                navigate('/');
+                                setTimeout(() => {
+                                    const calendly = document.getElementById('calendly');
+                                    if (calendly) {
+                                        calendly.scrollIntoView({ behavior: "smooth" })
+                                    }
+                                }, 100);
+                            }
+                        }}
                     >
                         <Typography
                             variant="button"
@@ -85,7 +99,7 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef }) => {
                 </Stack>
                 <Stack>
                     {Object.entries(contactDetails).map((detail, key) => {
-                        return(
+                        return (
                             <Typography
                                 key={key}
                                 variant="subtitle1"

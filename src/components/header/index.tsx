@@ -1,9 +1,13 @@
-import { Box, Stack, Typography } from "@mui/material";
-import headerBg from "../../assets/headerBg.svg";
-import { BaseButton } from "../button/styled";
-import { AboutRefType } from "../../types/app.type";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
+import { HeaderPropsType } from "../../types/app.type";
+import { getFontSize } from "../../configs/getFontSize";
+import { getTextWidth } from "../../configs/getTextWidth";
 
-export const Header: React.FC<AboutRefType> = ({ aboutRef, calendlyRef }) => {
+export const Header: React.FC<HeaderPropsType> = (
+    { headerBg, bgHeight, headerText, subHeaderText, callToAction, textWidth, location }
+) => {
+    const matches = useMediaQuery('(min-width:1280px)');
+
     return (
         <Box
             sx={{
@@ -11,11 +15,11 @@ export const Header: React.FC<AboutRefType> = ({ aboutRef, calendlyRef }) => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: { mobile: 692 },
+                height: { mobile: bgHeight },
                 padding: "calc(3 * var(--sectionMargin)) var(--pagePadding)",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "flex-end"
+                justifyContent: "flex-end",
             }}
         >
             <Stack>
@@ -23,16 +27,17 @@ export const Header: React.FC<AboutRefType> = ({ aboutRef, calendlyRef }) => {
                     variant="h1"
                     fontFamily={"PP Telegraph"}
                     fontWeight={800}
-                    fontSize={{ mobile: 30, tablet: 35, laptop: 40 }}
+                    fontSize={getFontSize(location)}
                     lineHeight={"normal"}
                     color={"#FFFFFF"}
                     whiteSpace={"wrap"}
                     marginBlockEnd={"2rem"}
                     sx={{
-                        textWrap: { mobile: "pretty", tablet: "balance" }
+                        textWrap: { mobile: "pretty", tablet: "balance" },
+                        width: !matches ? getTextWidth(textWidth) : "50%"
                     }}
                 >
-                    Engineering, Construction, Installation and Project Management of Oil and Gas Facilities
+                    {headerText}
                 </Typography>
                 <Typography
                     variant="body1"
@@ -44,7 +49,7 @@ export const Header: React.FC<AboutRefType> = ({ aboutRef, calendlyRef }) => {
                     whiteSpace={"wrap"}
                     marginBlockEnd={"2rem"}
                 >
-                    To utilize local expertise to deliver industry standard and world class services
+                    {subHeaderText}
                 </Typography>
                 <Stack
                     direction={{ mobile: "column", tablet: "row" }}
@@ -52,46 +57,7 @@ export const Header: React.FC<AboutRefType> = ({ aboutRef, calendlyRef }) => {
                     width={{ mobile: "100%", miniTablet: "max-content", tablet: "auto" }}
                     overflow={"hidden"}
                 >
-                    <BaseButton
-                        isheaderbutton="true"
-                        location="left"
-                        sx={{
-                            width: { mobile: "100%", miniTablet: "auto" },
-                        }}
-                        onClick={() => aboutRef?.current?.scrollIntoView({ behavior: "smooth" })}
-                    >
-                        <Typography
-                            variant="button"
-                            fontFamily={"inherit"}
-                            fontWeight={"inherit"}
-                            fontSize={"inherit"}
-                            lineHeight={"inherit"}
-                            color={"inherit"}
-                            textTransform={"inherit"}
-                        >
-                            Learn more
-                        </Typography>
-                    </BaseButton>
-                    <BaseButton
-                        isheaderbutton="true"
-                        location="right"
-                        sx={{
-                            width: { mobile: "100%", miniTablet: "auto" },
-                        }}
-                        onClick={() => calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })}
-                    >
-                        <Typography
-                            variant="button"
-                            fontFamily={"inherit"}
-                            fontWeight={"inherit"}
-                            fontSize={"inherit"}
-                            lineHeight={"inherit"}
-                            color={"inherit"}
-                            textTransform={"inherit"}
-                        >
-                            Schedule call
-                        </Typography>
-                    </BaseButton>
+                    {callToAction}
                 </Stack>
             </Stack>
         </Box >

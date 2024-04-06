@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Box, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
 import { services } from "../../data";
 import { ServicesStack } from "./styled";
@@ -5,6 +6,7 @@ import { BaseButton } from "../../components/button/styled";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 export const Services: React.FC<{}> = () => {
+    const navigate = useNavigate();
     return (
         <ServicesStack
             id="services"
@@ -56,6 +58,12 @@ export const Services: React.FC<{}> = () => {
                                         isheaderbutton={"false"}
                                         endIcon={<ArrowOutwardIcon />}
                                         disableElevation={true}
+                                        onClick={
+                                            () => navigate(`/${service.header
+                                                .split(" ")
+                                                .join("")
+                                                .toLowerCase()}`)
+                                        }
                                     >
                                         <Typography
                                             variant="button"
