@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, useMediaQuery } from "@mui/material";
 import { Navbar } from "../../components/navigation";
 import { Header } from "../../components/header";
 import { Services } from "../../containers/services";
@@ -15,6 +15,7 @@ import { BaseButton } from "../../components/button/styled";
 import headerBg from "../../assets/headerBg.svg";
 
 export const Home: React.FC<PagePropsType> = ({ aboutRef, footerRef, calendlyRef }) => {
+    const matches = useMediaQuery("(max-width: 768px)");
     const callToAction = callsToAction.map((callToAction, k) => {
         return (
             <BaseButton
@@ -26,9 +27,23 @@ export const Home: React.FC<PagePropsType> = ({ aboutRef, footerRef, calendlyRef
                 }}
                 onClick={() => {
                     if (k === 0) {
-                        aboutRef?.current?.scrollIntoView({ behavior: "smooth" })
+                        if (matches) {
+                            if (!aboutRef || !aboutRef.current) return
+                            const yCoordinate = aboutRef?.current?.getBoundingClientRect().top + window.scrollY;
+                            const yOffset = -108; //to account for navheight
+                            window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" })
+                        } else {
+                            aboutRef?.current?.scrollIntoView({ behavior: "smooth" })
+                        }
                     } else {
-                        calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })
+                        if (matches) {
+                            if (!calendlyRef || !calendlyRef.current) return
+                            const yCoordinate = calendlyRef?.current?.getBoundingClientRect().top + window.scrollY;
+                            const yOffset = -108; //to account for navheight
+                            window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" })
+                        } else {
+                            calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })
+                        }
                     }
                 }}
             >

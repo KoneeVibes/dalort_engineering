@@ -10,6 +10,8 @@ export const Header: React.FC<HeaderPropsType> = (
 
     return (
         <Box
+            id="header"
+            component={"div"}
             sx={{
                 backgroundImage: `url(${headerBg})`,
                 backgroundSize: "cover",

@@ -1,6 +1,8 @@
 import { Button, styled } from "@mui/material";
 
 const getColorStyles = (location?: string, isheaderbutton?: boolean) => {
+    //somehow this configuration should be improved along the solution of using cases
+    //to return values depending on location. I have to move on for time sake.
     const headerColors = {
         left: {
             bg: "conic-gradient(from -38.22deg at 47.29% 52.89%, #0B2E35 -93.07deg, #083B3B 79.2deg, #006450 184.52deg, #0B2E35 266.93deg, #083B3B 439.2deg)",

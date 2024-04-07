@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
 import { Footerbox } from "./styled";
 import { Logo } from "../../assets";
 import { BaseButton } from "../button/styled";
@@ -9,6 +9,7 @@ import { FooterRefType } from "../../types/app.type";
 
 export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef, page }) => {
     const navigate = useNavigate();
+    const matches = useMediaQuery("(max-width: 768px)");
     return (
         <Footerbox
             ref={footerRef}
@@ -43,15 +44,33 @@ export const Footer: React.FC<FooterRefType> = ({ footerRef, calendlyRef, page }
                         disableElevation={true}
                         onClick={() => {
                             if (page === "home") {
-                                calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })
+                                if (matches) {
+                                    if (!calendlyRef || !calendlyRef.current) return
+                                    const yCoordinate = calendlyRef?.current?.getBoundingClientRect().top + window.scrollY;
+                                    const yOffset = -108; //to account for navheight
+                                    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" })
+                                } else {
+                                    calendlyRef?.current?.scrollIntoView({ behavior: "smooth" })
+                                }
                             } else {
                                 navigate('/');
-                                setTimeout(() => {
-                                    const calendly = document.getElementById('calendly');
-                                    if (calendly) {
-                                        calendly.scrollIntoView({ behavior: "smooth" })
-                                    }
-                                }, 100);
+                                if (matches) {
+                                    setTimeout(() => {
+                                        const calendly = document.getElementById('calendly');
+                                        if (calendly) {
+                                            const yCoordinate = calendly.getBoundingClientRect().top + window.scrollY;
+                                            const yOffset = -108; //to account for navheight
+                                            window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" })
+                                        }
+                                    }, 100);
+                                } else {
+                                    setTimeout(() => {
+                                        const calendly = document.getElementById('calendly');
+                                        if (calendly) {
+                                            calendly.scrollIntoView({ behavior: "smooth" })
+                                        }
+                                    }, 100);
+                                }
                             }
                         }}
                     >

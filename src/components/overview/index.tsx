@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { OverviewPropsType } from "../../types/app.type";
 import { OverviewStack } from "./styled";
 import { BaseButton } from "../button/styled";
@@ -7,6 +7,7 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 export const Overview: React.FC<OverviewPropsType> = ({ service }) => {
     const navigate = useNavigate();
+    const matches = useMediaQuery("(max-width: 768px)");
     return (
         <OverviewStack>
             <Typography
@@ -42,12 +43,23 @@ export const Overview: React.FC<OverviewPropsType> = ({ service }) => {
                     disableElevation={true}
                     onClick={() => {
                         navigate('/');
-                        setTimeout(() => {
-                            const services = document.getElementById('services');
-                            if (services) {
-                                services.scrollIntoView({ behavior: "smooth" })
-                            }
-                        }, 100);
+                        if (matches) {
+                            setTimeout(() => {
+                                const services = document.getElementById('services');
+                                if (services) {
+                                    const yCoordinate = services.getBoundingClientRect().top + window.scrollY;
+                                    const yOffset = -108; //to account for navheight
+                                    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" })
+                                }
+                            }, 100);
+                        } else {
+                            setTimeout(() => {
+                                const services = document.getElementById('services');
+                                if (services) {
+                                    services.scrollIntoView({ behavior: "smooth" })
+                                }
+                            }, 100);
+                        }
                     }}
                     sx={{
                         background: "#0A3237",

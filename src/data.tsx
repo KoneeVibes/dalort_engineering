@@ -16,7 +16,7 @@ import supply from "./assets/supplyServices.svg";
 export const navLinks = [
     {
         item: "Home",
-        url: "/"
+        url: "/#"
     },
     {
         item: "About us",

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import { Logo } from "../../assets";
 import { BaseButton } from "../button/styled";
 import { navLinks } from "../../data";
@@ -13,6 +13,7 @@ import { FooterRefType } from "../../types/app.type";
 
 export const Navbar: React.FC<FooterRefType> = ({ footerRef }) => {
     const navigate = useNavigate();
+    const matches = useMediaQuery("(max-width: 768px)");
     const { openMenu, setOpenMenu } = useContext(Context);
     useEffect(() => {
         if (openMenu) {
@@ -22,15 +23,33 @@ export const Navbar: React.FC<FooterRefType> = ({ footerRef }) => {
         }
     }, [openMenu]);
     const handleLogoClick = () => {
+        const nav = document.getElementById('nav');
         setOpenMenu(false);
         navigate("/");
+        nav?.scrollIntoView({ behavior: "smooth" });
+        if (matches) {
+            setTimeout(() => {
+                const header = document.getElementById('header');
+                if (header) {
+                    const yCoordinate = header.getBoundingClientRect().top + window.scrollY;
+                    const yOffset = -108;
+                    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" })
+                }
+            }, 100);
+        }
     };
     const navigateToCalendly = () => {
         setOpenMenu(false);
         footerRef?.current?.scrollIntoView({ behavior: "smooth" });
     };
+    const scrollWithOffset = (el: any) => {
+        const yCoordinate = el.getBoundingClientRect().top + window.scrollY;
+        const yOffset = -108; //to account for navheight
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+    }
+
     return (
-        <Nav>
+        <Nav id="nav">
             <Logo
                 className="logo"
                 onClick={handleLogoClick}
@@ -46,6 +65,13 @@ export const Navbar: React.FC<FooterRefType> = ({ footerRef }) => {
                                 key={k}
                                 to={link.url}
                                 smooth={true}
+                                scroll={(el) => {
+                                    if (matches) {
+                                        scrollWithOffset(el);
+                                    } else {
+                                        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                    }
+                                }}
                                 style={{
                                     textDecoration: "none",
                                 }}
@@ -92,6 +118,6 @@ export const Navbar: React.FC<FooterRefType> = ({ footerRef }) => {
                 </Box>
             </Stack>
             <Menu />
-        </Nav>
+        </Nav >
     )
 }
