@@ -6,8 +6,8 @@ import { getTextWidth } from "../../configs/getTextWidth";
 export const Header: React.FC<HeaderPropsType> = (
     { headerBg, bgHeight, headerText, subHeaderText, callToAction, textWidth, location }
 ) => {
-    const matches = useMediaQuery('(min-width:1280px)');
-
+    const screenSize = useMediaQuery('(min-width:1280px)');
+    const matches = location !== "home" && screenSize;
     return (
         <Box
             id="header"
